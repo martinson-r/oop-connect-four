@@ -38,5 +38,11 @@ window.addEventListener("DOMContentLoaded", event => {
         game = new Game(player1.value, player2.value);
         newGame.disabled = true;
         updateUI();
-    })
+    });
+
+    let clickTargets = document.getElementById('click-targets');
+    clickTargets.addEventListener("click", event => {
+        game.playInColumn();
+        updateUI();
+    });
 });
