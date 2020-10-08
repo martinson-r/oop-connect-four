@@ -6,7 +6,7 @@ export class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.currentPlayer = 1;
-        this.columns = [0, 1, 2, 3, 4, 5, 6];
+        this.columns = [new Column(),new Column(),new Column(),new Column(),new Column(),new Column(),new Column(),];
     }
 
     getName() {
@@ -14,6 +14,10 @@ export class Game {
     }
 
     playInColumn() {
+        let clickTargets = document.getElementById('click-targets');
+        let currentColumn = clickTargets[this.columns];
+        console.log(currentColumn);
+        currentColumn.add(this.currentPlayer);
 
         if (this.currentPlayer === 1) {
 
@@ -24,11 +28,7 @@ export class Game {
 
     }
 
-    clickTargets = document.getElementById('click-targets');
-        clickTargets.addEventListener("click", event => {
-            let currentColumn = clickTargets.slice(7);
-            console.log(currentColumn);
-        }
+
 
 
 }
