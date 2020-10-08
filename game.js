@@ -13,6 +13,10 @@ export class Game {
         return `${this.player1} vs ${this.player2}`;
     }
 
+    getTokenAt (rowIndex, columnIndex) {
+        return this.column[columnIndex].getTokenAt(rowIndex);
+    }
+
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
 

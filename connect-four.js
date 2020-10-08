@@ -20,12 +20,24 @@ let updateUI = function () {
         }
 
         for (let i = 0; i <= 5; i++) {
-            let rowIndex = i;
+            //let rowIndex = i;
             for (let j = 0; j <= 6; j++) {
-                let columnIndex = j;
-                const square = document.querySelector(`#square${rowIndex}-${columnIndex}`);
+                //let columnIndex = j;
+                const square = document.querySelector(`#square-${i}-${j}`);
                 square.innerHTML = '';
-                let playerChip = game.getToken(rowIndex, columnIndex);
+                let playerChip = game.getTokenAt(rowIndex, columnIndex);
+                if (playerChip === 1) {
+                    let div = document.createElement("div");
+                    div.classList.add("token");
+                    div.classList.add("black");
+                    square.appendChild(div);
+                }
+                if (playerChip === 2) {
+                    let div = document.createElement("div");
+                    div.classList.add("token");
+                    div.classList.add("red");
+                    square.appendChild(div);
+                }
             }
         }
     }
