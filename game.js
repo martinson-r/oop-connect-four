@@ -13,11 +13,8 @@ export class Game {
         return `${this.player1} vs ${this.player2}`;
     }
 
-    playInColumn() {
-        let clickTargets = document.getElementById('click-targets');
-        let currentColumn = clickTargets[this.columns];
-        console.log(currentColumn);
-        currentColumn.add(this.currentPlayer);
+    playInColumn(columnIndex) {
+        this.columns[columnIndex].add(this.currentPlayer);
 
         if (this.currentPlayer === 1) {
 

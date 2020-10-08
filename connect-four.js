@@ -49,8 +49,14 @@ window.addEventListener("DOMContentLoaded", event => {
     });
 
    let clickTargets = document.getElementById('click-targets');
+   clickTargets.addEventListener("click", event => {
+        let targetId = event.target.id;
+        if (!targetId.startsWith("column-")) return;
+   });
+   let columnIndex = Number.parseInt(targetId[targetId - 1]);
     clickTargets.addEventListener("click", event => {
         game.playInColumn();
         updateUI();
+        console.log(game.columns)
     });
 });
