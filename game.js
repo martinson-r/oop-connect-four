@@ -10,14 +10,14 @@ export class Game {
     }
 
     playInColumn() {
-            console.log("clicked!");
+
             if (this.currentPlayer === 1) {
-                console.log(this.currentPlayer);
+
                 return this.currentPlayer = 2;
 
             } else {
-                console.log(this.currentPlayer);
             return this.currentPlayer = 1;
             }
+
     }
 }

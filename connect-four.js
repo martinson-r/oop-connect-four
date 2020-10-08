@@ -10,15 +10,15 @@ let updateUI = function () {
         boardHolder.classList.remove("is-invisible");
         let gameName = document.getElementById("game-name");
         gameName.innerHTML = game.getName();
+        let clickTargets = document.getElementById('click-targets');
         if (game.currentPlayer === 1) {
-            this.event.target.setAttribute("class", "black")
-            this.event.target.remove("red");
+            clickTargets.classList.add("black")
+            clickTargets.classList.remove("red");
         } else {
-            this.event.target.setAttribute("class", "red");
-            this.event.target.remove("black");
+            clickTargets.classList.add("red");
+            clickTargets.classList.remove("black");
         }
     }
-
 }
 
 window.addEventListener("DOMContentLoaded", event => {
@@ -48,16 +48,9 @@ window.addEventListener("DOMContentLoaded", event => {
         updateUI();
     });
 
-    let clickTargets = document.querySelectorAll(".click-target");
-    clickTargets.forEach(target => {
-        target.addEventListener("click", event => {
-            game.playInColumn();
-            updateUI();
-        })
-    })
-    //getElementById('click-targets');
-    // clickTargets.addEventListener("click", event => {
-    //     game.playInColumn();
-    //     updateUI();
-    // });
+   let clickTargets = document.getElementById('click-targets');
+    clickTargets.addEventListener("click", event => {
+        game.playInColumn();
+        updateUI();
+    });
 });
