@@ -5,11 +5,10 @@ export class Column {
         this.tokens = [null, null, null, null, null, null];
     }
 
-    add(playerNumber) {
-      this.tokens.push(currentPlayer);
+    add(currentPlayer) {
       for (let i = 5; i >= 0; i--) {
         if (this.tokens[i] === null) {
-          this.tokens[i] = playerNumber;
+          this.tokens[i] = currentPlayer;
           break;
         }
       }

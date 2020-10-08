@@ -18,6 +18,16 @@ let updateUI = function () {
             clickTargets.classList.add("red");
             clickTargets.classList.remove("black");
         }
+
+        for (let i = 0; i <= 5; i++) {
+            let rowIndex = i;
+            for (let j = 0; j <= 6; j++) {
+                let columnIndex = j;
+                const square = document.querySelector(`#square${rowIndex}-${columnIndex}`);
+                square.innerHTML = '';
+                let playerChip = game.getToken(rowIndex, columnIndex);
+            }
+        }
     }
 }
 
@@ -52,10 +62,8 @@ window.addEventListener("DOMContentLoaded", event => {
    clickTargets.addEventListener("click", event => {
         let targetId = event.target.id;
         if (!targetId.startsWith("column-")) return;
-   });
-   let columnIndex = Number.parseInt(targetId[targetId - 1]);
-    clickTargets.addEventListener("click", event => {
-        game.playInColumn();
+        let columnIndex = Number.parseInt(targetId[targetId.length - 1]);
+        game.playInColumn(columnIndex);
         updateUI();
         console.log(game.columns)
     });
