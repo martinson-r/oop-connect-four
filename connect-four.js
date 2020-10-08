@@ -10,6 +10,13 @@ let updateUI = function () {
         boardHolder.classList.remove("is-invisible");
         let gameName = document.getElementById("game-name");
         gameName.innerHTML = game.getName();
+        if (game.currentPlayer === 1) {
+            this.event.target.setAttribute("class", "black")
+            this.event.target.remove("red");
+        } else {
+            this.event.target.setAttribute("class", "red");
+            this.event.target.remove("black");
+        }
     }
 
 }
@@ -18,6 +25,7 @@ window.addEventListener("DOMContentLoaded", event => {
     let player2 = document.getElementById('player-2-name');
     let player1 = document.getElementById('player-1-name');
     let newGame = document.getElementById('new-game');
+
     player1.addEventListener("keyup", event => {
         if (player1.value && player2.value) {
             newGame.disabled = false;
@@ -40,9 +48,16 @@ window.addEventListener("DOMContentLoaded", event => {
         updateUI();
     });
 
-    let clickTargets = document.getElementById('click-targets');
-    clickTargets.addEventListener("click", event => {
-        game.playInColumn();
-        updateUI();
-    });
+    let clickTargets = document.querySelectorAll(".click-target");
+    clickTargets.forEach(target => {
+        target.addEventListener("click", event => {
+            game.playInColumn();
+            updateUI();
+        })
+    })
+    //getElementById('click-targets');
+    // clickTargets.addEventListener("click", event => {
+    //     game.playInColumn();
+    //     updateUI();
+    // });
 });
