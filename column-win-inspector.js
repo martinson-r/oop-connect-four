@@ -8,10 +8,10 @@ export class ColumnWinInspector {
 
     inspect() {
         for (let i = 0; i <= 2; i++) {
-            let currentToken = column.getTokenAtRow(i);
-            let nextToken = column.getTokenAtRow(i + 1);
-            let nextToken1 = column.getTokenAtRow(i + 2);
-            let nextToken2 = column.getTokenAtRow(i + 3);
+            let currentToken = this.columnObj.getTokenAtRow(i);
+            let nextToken = this.columnObj.getTokenAtRow(i + 1);
+            let nextToken1 = this.columnObj.getTokenAtRow(i + 2);
+            let nextToken2 = this.columnObj.getTokenAtRow(i + 3);
             if (currentToken === nextToken &&
                 nextToken === nextToken1 &&
                 nextToken1 === nextToken2 &&
