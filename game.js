@@ -34,11 +34,11 @@ export class Game {
     checkForColumnWin() {
         for ( let i = 0; i <= 6; i++) {
             let columnToInspect = this.columns[i];
-            if (columnWinInspector.inspect(columnToInspect) === 1) {
-                this.winnerNumber = 1;
-            } else if (columnWinInspector.inspect(columnToInspect) === 2) {
-                this.winnerNumber = 2;
-        }
+        //     if (column-win-inspector.inspect(columnToInspect) === 1) {
+        //         this.winnerNumber = 1;
+        //     } else if (column-win-inspector.inspect(columnToInspect) === 2) {
+        //         this.winnerNumber = 2;
+        // }
     }
 }
 
