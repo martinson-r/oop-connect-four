@@ -32,13 +32,17 @@ export class Game {
     }
 
     checkForColumnWin() {
-        for ( let i = 0; i <= 6; i++) {
-            let columnToInspect = this.columns[i];
-            if (columnWinInspector.inspect(columnToInspect) === 1) {
-                this.winnerNumber = 1;
-            } else if (columnWinInspector.inspect(columnToInspect) === 2) {
-                this.winnerNumber = 2;
-        }
+        for (let column of this.columns) {
+            let columnToInspect = new ColumnWinInspector(column);
+            let columnInspection = columnToInspect.inspect();
+            //columnWinInspector.inspect();
+            //columnInspection.ColumnWinInspector.inspect();
+            //columnInspection.ColumnWinInspector.inspect();
+            // if (columnWinInspector.inspect(columnToInspect) === 1) {
+            //     this.winnerNumber = 1;
+            // } else if (columnWinInspector.inspect(columnToInspect) === 2) {
+            //     this.winnerNumber = 2;
+       // }
     }
 }
 
