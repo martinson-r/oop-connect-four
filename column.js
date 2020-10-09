@@ -17,4 +17,12 @@ export class Column {
     getTokenAtRow(rowIndex) {
       return this.tokens[rowIndex]
     }
+
+    isFull() {
+      if (this.tokens[0] !== null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 }

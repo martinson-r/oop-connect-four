@@ -39,6 +39,16 @@ let updateUI = function () {
                     square.appendChild(div);
                 }
             }
+
+            for (let k = 0; k <= 6; k++) {
+                let isItFull = game.isColumnFull(k);
+                let currentColumnIndex = document.getElementById(`column-${k}`);
+                if (isItFull === true) {
+                    currentColumnIndex.classList.add('full');
+                } else {
+                    currentColumnIndex.classList.remove('full');
+                }
+            }
         }
     }
 }

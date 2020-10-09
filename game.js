@@ -28,4 +28,8 @@ export class Game {
         }
 
     }
+
+    isColumnFull(columnIndex) {
+        return columns.isFull(columnIndex);
+    }
 }
