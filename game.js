@@ -11,6 +11,9 @@ export class Game {
     }
 
     getName() {
+        if (this.winnerNumber === 3) {
+            return `${this.player1} ties with ${this.player2}`;
+        }
         return `${this.player1} vs ${this.player2}`;
     }
 
@@ -19,32 +22,21 @@ export class Game {
     }
 
     checkForTie() {
-        if (this.columns.every(isFull() === true)) {
+        if (this.columns.every(this.columns.isFull())) {
             this.winnerNumber = 3;
-        } else {
-            return "${player1} ties with ${player2}";
         }
-
-
-        // for (let i = 0; i <= 6; i++) {
-        //     if (this.columns[i].isFull() === false) {
-        //         return false;
-        //     } else {
-        //         this.winnerNumber = 3;
-        //     }
-        // }
+        return false;
     }
 
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
-        checkForTie();
-
+        this.checkForTie();
+        console.log(this.checkForTie());
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
         } else {
             return this.currentPlayer = 1;
         }
-
     }
 
     isColumnFull(columnIndex) {
