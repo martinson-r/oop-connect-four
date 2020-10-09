@@ -22,16 +22,17 @@ export class Game {
     }
 
     checkForTie() {
-        if (this.columns.every(this.columns.isFull())) {
+        if (this.columns.every((column) => column.isFull())) {
             this.winnerNumber = 3;
         }
         return false;
+
+
     }
 
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
         this.checkForTie();
-        console.log(this.checkForTie());
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
         } else {
