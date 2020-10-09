@@ -1,15 +1,19 @@
 import { Game } from "./game.js";
 
 export class ColumnWinInspector {
-    constructor (columnObj={}) {
+    constructor (columnObj) {
         this.columnObj = columnObj;
     }
 
-    inspect(columnObj) {
+    inspect() {
         for (let i = 0; i <= 6; i++) {
-            if (columnObj.game.updateUI.playerChip) {
-                console.log(game.updateUI.playerChip);
-                return game.updateUI.playerChip;
+            let currentToken = column.getTokenAtRow(i);
+            let nextToken = column.getTokenAtRow(i + 1);
+            let nextToken1 = column.getTokenAtRow(i + 2);
+            let nextToken2 = column.getTokenAtRow(i + 3);
+            if (currentToken === nextToken && nextToken === nextToken1 && nextToken1 === nextToken2) {
+                game.winnerNumber = currentToken;
+                console.log(game.winnerNumber);
             }
         }
         console.log("nope!");
