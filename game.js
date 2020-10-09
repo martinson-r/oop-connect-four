@@ -59,6 +59,7 @@ export class Game {
         this.columns[columnIndex].add(this.currentPlayer);
         this.checkForTie();
         this.checkForColumnWin();
+        this.checkForRowWin();
 
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
@@ -72,6 +73,10 @@ export class Game {
         return true;
         }
         return this.columns[columnIndex].isFull();
+    }
+
+    checkForRowWin() {
+
     }
 
 
