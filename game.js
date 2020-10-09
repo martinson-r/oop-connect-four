@@ -15,6 +15,13 @@ export class Game {
         if (this.winnerNumber === 3) {
             return `${this.player1} ties with ${this.player2}`;
         }
+        if (this.winnerNumber === 1) {
+            return `${this.player1} Wins!!`;
+        }
+        if (this.winnerNumber === 2) {
+            return `${this.player2} Wins!!`;
+        }
+
         return `${this.player1} vs ${this.player2}`;
     }
 
@@ -32,29 +39,26 @@ export class Game {
     }
 
     checkForColumnWin() {
+        if (this.winnerNumber !== 0) {
+            return;
+        }
+
         for (let column of this.columns) {
-            let columnToInspect = new ColumnWinInspector(column);
-            let columnInspection = columnToInspect.inspect();
-            //columnWinInspector.inspect();
-            //columnInspection.ColumnWinInspector.inspect();
-            //columnInspection.ColumnWinInspector.inspect();
-            // if (columnWinInspector.inspect(columnToInspect) === 1) {
-            //     this.winnerNumber = 1;
-            // } else if (columnWinInspector.inspect(columnToInspect) === 2) {
-            //     this.winnerNumber = 2;
-       // }
+            const inspector = new ColumnWinInspector(column);
+            const winnerNumber = inspector.inspect();
+            console.log(this.winnerNumber);
+
+            if (winnerNumber === 1 || winnerNumber === 2) {
+                this.winnerNumber = winnerNumber;
+            }
+
     }
 }
 
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
         this.checkForTie();
-
-        if (this.winnerNumber != 0) {
-            return false;
-        } else {
-            this.checkForColumnWin();
-        }
+        this.checkForColumnWin();
 
         if (this.currentPlayer === 1) {
             return this.currentPlayer = 2;
@@ -64,6 +68,9 @@ export class Game {
     }
 
     isColumnFull(columnIndex) {
+        if (this.winnerNumber === 1 || this.winnerNumber === 2) {
+        return true;
+        }
         return this.columns[columnIndex].isFull();
     }
 
