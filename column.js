@@ -14,7 +14,7 @@ export class Column {
       }
     }
 
-    getTokenAt(rowIndex) {
+    getTokenAtRow(rowIndex) {
       return this.tokens[rowIndex]
     }
 }

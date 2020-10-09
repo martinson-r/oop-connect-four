@@ -20,9 +20,9 @@ let updateUI = function () {
         }
 
         for (let i = 0; i <= 5; i++) {
-            //let rowIndex = i;
+            let rowIndex = i;
             for (let j = 0; j <= 6; j++) {
-                //let columnIndex = j;
+                let columnIndex = j;
                 const square = document.querySelector(`#square-${i}-${j}`);
                 square.innerHTML = '';
                 let playerChip = game.getTokenAt(rowIndex, columnIndex);

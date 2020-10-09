@@ -14,7 +14,7 @@ export class Game {
     }
 
     getTokenAt (rowIndex, columnIndex) {
-        return this.column[columnIndex].getTokenAt(rowIndex);
+        return this.columns[columnIndex].getTokenAtRow(rowIndex);
     }
 
     playInColumn(columnIndex) {
@@ -28,8 +28,4 @@ export class Game {
         }
 
     }
-
-
-
-
 }
