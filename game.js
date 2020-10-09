@@ -15,6 +15,13 @@ export class Game {
         if (this.winnerNumber === 3) {
             return `${this.player1} ties with ${this.player2}`;
         }
+        if (this.winnerNumber === 1) {
+            return `${player1} Wins!!`
+        }
+        if (this.winnerNumber === 2) {
+            return `${player2} Wins!!`
+        }
+
         return `${this.player1} vs ${this.player2}`;
     }
 
@@ -35,14 +42,8 @@ export class Game {
         for (let column of this.columns) {
             let columnToInspect = new ColumnWinInspector(column);
             let columnInspection = columnToInspect.inspect();
-            //columnWinInspector.inspect();
-            //columnInspection.ColumnWinInspector.inspect();
-            //columnInspection.ColumnWinInspector.inspect();
-            // if (columnWinInspector.inspect(columnToInspect) === 1) {
-            //     this.winnerNumber = 1;
-            // } else if (columnWinInspector.inspect(columnToInspect) === 2) {
-            //     this.winnerNumber = 2;
-       // }
+            this.winnerNumber = columnInspection;
+
     }
 }
 

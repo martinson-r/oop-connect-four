@@ -16,14 +16,14 @@ export class ColumnWinInspector {
                 nextToken === nextToken1 &&
                 nextToken1 === nextToken2 &&
                 currentToken != null) {
-                //game.winnerNumber = currentToken;
-                console.log(currentToken);
-                return currentToken;
-                //console.log(game.winnerNumber);
+
+                    //game.winnerNumber = currentToken;
+
+                    return currentToken;
+            } else {
+                return 0;
+            }
         }
-        }
-        console.log("nope!");
-        return 0;
 
     }
 }
